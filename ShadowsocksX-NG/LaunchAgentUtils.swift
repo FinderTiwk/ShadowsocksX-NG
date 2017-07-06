@@ -9,7 +9,7 @@
 import Foundation
 
 let SS_LOCAL_VERSION = "3.0.5"
-let KCPTUN_CLIENT_VERSION = "20170322"
+let KCPTUN_CLIENT_VERSION = "20170525"
 let PRIVOXY_VERSION = "3.0.26.static"
 let APP_SUPPORT_DIR = "/Library/Application Support/ShadowsocksX-NG/"
 let LAUNCH_AGENT_DIR = "/Library/LaunchAgents/"
@@ -327,7 +327,7 @@ func SyncPrivoxy() {
 // kcptun
 
 func generateKcptunLauchAgentPlist() -> Bool {
-    let sslocalPath = NSHomeDirectory() + APP_SUPPORT_DIR + "kcptun_client"
+    let sslocalPath = NSHomeDirectory() + APP_SUPPORT_DIR + "kcptun_client_darwin_amd64"
     let logFilePath = NSHomeDirectory() + "/Library/Logs/kcptun_client.log"
     let launchAgentDirPath = NSHomeDirectory() + LAUNCH_AGENT_DIR
     let plistFilepath = launchAgentDirPath + LAUNCH_AGENT_CONF_KCPTUN_NAME
@@ -377,7 +377,7 @@ func InstallKcptunClient() {
     let fileMgr = FileManager.default
     let homeDir = NSHomeDirectory()
     let appSupportDir = homeDir+APP_SUPPORT_DIR
-    if !fileMgr.fileExists(atPath: appSupportDir + "kcptun_\(KCPTUN_CLIENT_VERSION)/kcptun_client") {
+    if !fileMgr.fileExists(atPath: appSupportDir + "kcptun_\(KCPTUN_CLIENT_VERSION)/kcptun_client_darwin_amd64") {
         let bundle = Bundle.main
         let installerPath = bundle.path(forResource: "install_kcptun", ofType: "sh")
         let task = Process.launchedProcess(launchPath: installerPath!, arguments: [""])

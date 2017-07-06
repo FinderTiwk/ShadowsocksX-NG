@@ -359,14 +359,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         }
     }
     
-    @IBAction func feedback(_ sender: NSMenuItem) {
-        NSWorkspace.shared().open(URL(string: "https://github.com/qiuyuzhou/ShadowsocksX-NG/issues")!)
-    }
-    
-    @IBAction func showAbout(_ sender: NSMenuItem) {
-        NSApp.orderFrontStandardAboutPanel(sender);
-        NSApp.activate(ignoringOtherApps: true)
-    }
     
     func updateRunningModeMenu() {
         let defaults = UserDefaults.standard
